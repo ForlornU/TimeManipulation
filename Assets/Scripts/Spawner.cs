@@ -15,20 +15,23 @@ public class Spawner : MonoBehaviour
     }
     IEnumerator SpawnObject()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(Random.Range(1f, 2f));
 
-        Vector3 pos = transform.position + Random.insideUnitSphere * 5f;
-        Instantiate(template, pos, Quaternion.identity);
-        StartCoroutine(SpawnObject());
+        Vector3 randomPos = transform.position + Random.insideUnitSphere * 5f;
+        Instantiate(template, randomPos, Quaternion.identity);
         PlaySound();
+
+        StartCoroutine(SpawnObject());
     }
 
     void PlaySound()
     {
-        AudioClip c = clip1;
-        float r = Random.value;
-        if(r <= 0.5f)
-            c = clip2;
-        GetComponent<AudioSource>().PlayOneShot(c);
+        AudioClip randomClip = clip1;
+
+        float randomValue = Random.value;
+        if(randomValue <= 0.5f)
+            randomClip = clip2;
+
+        GetComponent<AudioSource>().PlayOneShot(randomClip);
     }
 }
