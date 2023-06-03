@@ -9,6 +9,9 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     GameObject template;
 
+    [SerializeField]
+    ParticleSystem spawnParticleSystem;
+
     private void Start()
     {
         StartCoroutine(SpawnObject());
@@ -19,8 +22,9 @@ public class Spawner : MonoBehaviour
 
         Vector3 randomPos = transform.position + Random.insideUnitSphere * 5f;
         Instantiate(template, randomPos, Quaternion.identity);
-        PlaySound();
 
+        PlaySound();
+        PlayEffects(randomPos);
         StartCoroutine(SpawnObject());
     }
 
@@ -33,5 +37,11 @@ public class Spawner : MonoBehaviour
             randomClip = clip2;
 
         GetComponent<AudioSource>().PlayOneShot(randomClip);
+    }
+
+    void PlayEffects(Vector3 newPos)
+    {
+        spawnParticleSystem.transform.position = newPos;
+        spawnParticleSystem.Emit(100);
     }
 }
