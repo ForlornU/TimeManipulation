@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7090872260806392392}
   m_Layer: 0
-  m_Name: CubeParent
+  m_Name: AnimatedCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -204,4 +204,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f39917960296f1418d240e1ede5c487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 7400000, guid: d87d7f2ee36f6de44971d0e06a36cb79, type: 2}

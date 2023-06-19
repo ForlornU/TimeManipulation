@@ -41,11 +41,11 @@ public class TimeManipulation : MonoBehaviour
         speedText.text = slider.value.ToString("N2");
 
         Time.timeScale = slider.value;
-        Time.fixedDeltaTime = Math.Clamp(fixedTime * Time.timeScale, 0f, maxfixedTime);
+        //Time.fixedDeltaTime = Math.Clamp(fixedTime * Time.timeScale, 0f, maxfixedTime);
 
         audioMixer.SetFloat("Pitch", slider.value);
 
-        ChangeBgColor();
+        //ChangeBgColor();
     }
 
     void ChangeBgColor()
